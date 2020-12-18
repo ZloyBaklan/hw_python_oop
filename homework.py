@@ -51,9 +51,7 @@ class CashCalculator(Calculator):
     def get_today_cash_remained(self, currency):
         cash_today = self.limit - self.get_today_stats()
         if cash_today > 0:
-            return f'На сегодня осталось' + 
-                f'{round((cash_today)/self.dictionary_rates[currency][0], 2)}' + 
-                f' {self.dictionary_rates[currency][1]}'
+            return f'На сегодня осталось {round((cash_today)/self.dictionary_rates[currency][0], 2)} {self.dictionary_rates[currency][1]}'
         elif cash_today < 0:
             return f'Денег нет, держись: твой долг - {abs(round((cash_today)/self.dictionary_rates[currency][0], 2))} {self.dictionary_rates[currency][1]}'
         return 'Денег нет, держись'
